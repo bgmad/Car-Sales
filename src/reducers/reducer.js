@@ -64,7 +64,7 @@ export const rootReducer = (state = initialState, action = {type: null}) => {
                     ...state.additionalFeatures,
                     state.car.features
                         .filter(item => 
-                            item.id === action.payload)
+                            item.id === action.payload)[0]
                 ]
             });
         

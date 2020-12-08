@@ -3,9 +3,9 @@ import React from 'react';
 const AdditionalFeature = props => {
   const handleClick = e => {
     e.preventDefault();
-    // console.log(props.feature.id);
     props.handleAddFeature(props.feature.id)
   }
+  console.log(props);
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}

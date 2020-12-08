@@ -12,16 +12,20 @@ import { connect } from 'react-redux'
 import { addFeature, removeFeature } from './actions/index';
 
 const App = props => {
+  console.log(props);
+
   const handleAddFeature = featureId => {
-    console.log('adding')
     props.addFeature(featureId);
+  }
+  const handleRemoveFeature = featureId => {
+    props.removeFeature(featureId);
   }
 
   return (
     <div className="boxes">
       <div className="box">
         <Header car={props.car} />
-        <AddedFeatures car={props.car} />
+        <AddedFeatures car={props.car} handleRemoveFeature={handleRemoveFeature}/>
       </div>
       <div className="box">
         <AdditionalFeatures additionalFeatures={props.additionalFeatures} handleAddFeature={handleAddFeature}/>
@@ -32,11 +36,7 @@ const App = props => {
 };
 
 const mapStateToProps = state => {
-  return ({
-    car: state.car,
-    additionalFeatures: state.additionalFeatures,
-    additionalPrice: state.additionalPrice
-  })
+  return (state)
 }
 
 export default connect(mapStateToProps, {addFeature: addFeature, removeFeature: removeFeature})(App);
